@@ -1,0 +1,339 @@
+---
+interface Props { id: string }
+const { id } = Astro.props
+---
+
+{id === 'ai' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+    <rect width="240" height="180" fill="#1e2d45"/>
+
+    <!-- scattered background data particles -->
+    <g fill="#c98b2a" opacity="0.28">
+      <circle cx="15" cy="12" r="1.5"/><circle cx="48" cy="6" r="1"/>
+      <circle cx="108" cy="9" r="1.5"/><circle cx="183" cy="14" r="1"/>
+      <circle cx="226" cy="38" r="1.5"/><circle cx="234" cy="78" r="1"/>
+      <circle cx="231" cy="128" r="1.5"/><circle cx="208" cy="162" r="1"/>
+      <circle cx="168" cy="173" r="1.5"/><circle cx="118" cy="177" r="1"/>
+      <circle cx="63" cy="169" r="1.5"/><circle cx="22" cy="146" r="1"/>
+      <circle cx="7" cy="108" r="1.5"/><circle cx="9" cy="58" r="1"/>
+      <circle cx="33" cy="22" r="1.5"/><circle cx="198" cy="7" r="1"/>
+      <circle cx="145" cy="4" r="1.5"/><circle cx="72" cy="30" r="1"/>
+      <circle cx="170" cy="40" r="1"/><circle cx="42" cy="155" r="1.5"/>
+    </g>
+
+    <!-- spokes from center to outer nodes -->
+    <g stroke="#e8e0cc" stroke-width="0.6" opacity="0.12">
+      <line x1="120" y1="88" x2="185" y2="88"/>
+      <line x1="120" y1="88" x2="152" y2="144"/>
+      <line x1="120" y1="88" x2="88" y2="144"/>
+      <line x1="120" y1="88" x2="55" y2="88"/>
+      <line x1="120" y1="88" x2="88" y2="32"/>
+      <line x1="120" y1="88" x2="152" y2="32"/>
+    </g>
+
+    <!-- outer hexagon ring connections -->
+    <g stroke="#4aaba6" stroke-width="0.5" opacity="0.22">
+      <line x1="185" y1="88" x2="152" y2="144"/>
+      <line x1="152" y1="144" x2="88" y2="144"/>
+      <line x1="88" y1="144" x2="55" y2="88"/>
+      <line x1="55" y1="88" x2="88" y2="32"/>
+      <line x1="88" y1="32" x2="152" y2="32"/>
+      <line x1="152" y1="32" x2="185" y2="88"/>
+    </g>
+
+    <!-- outer aggregation nodes (teal) -->
+    <g fill="#4aaba6">
+      <circle cx="185" cy="88" r="5"/>
+      <circle cx="152" cy="144" r="5"/>
+      <circle cx="88" cy="144" r="5"/>
+      <circle cx="55" cy="88" r="5"/>
+      <circle cx="88" cy="32" r="5"/>
+      <circle cx="152" cy="32" r="5"/>
+    </g>
+
+    <!-- inner processing ring nodes (amber) -->
+    <g fill="#c98b2a" opacity="0.75">
+      <circle cx="153" cy="88" r="3.5"/>
+      <circle cx="120" cy="121" r="3.5"/>
+      <circle cx="87" cy="88" r="3.5"/>
+      <circle cx="120" cy="55" r="3.5"/>
+    </g>
+
+    <!-- terra intelligence core (concentric) -->
+    <circle cx="120" cy="88" r="17" fill="#c45c35"/>
+    <circle cx="120" cy="88" r="10" fill="#c98b2a"/>
+    <circle cx="120" cy="88" r="4.5" fill="#1e2d45"/>
+  </svg>
+)}
+
+{id === 'software' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+
+    <!-- alternating architecture layer bands -->
+    <rect x="0" y="0"   width="240" height="36" fill="#1e2d45"/>
+    <rect x="0" y="36"  width="240" height="36" fill="#111009"/>
+    <rect x="0" y="72"  width="240" height="36" fill="#1e2d45"/>
+    <rect x="0" y="108" width="240" height="36" fill="#111009"/>
+    <rect x="0" y="144" width="240" height="36" fill="#1e2d45"/>
+
+    <!-- module blocks per band -->
+    <rect x="15"  y="5"   width="52" height="26" fill="#c45c35" opacity="0.38"/>
+    <rect x="142" y="5"   width="60" height="26" fill="#2d7b78" opacity="0.35"/>
+
+    <rect x="10"  y="41"  width="65" height="26" fill="#c98b2a" opacity="0.38"/>
+    <rect x="187" y="41"  width="44" height="26" fill="#c45c35" opacity="0.32"/>
+
+    <rect x="28"  y="77"  width="42" height="26" fill="#2d7b78" opacity="0.38"/>
+    <rect x="163" y="77"  width="56" height="26" fill="#c98b2a" opacity="0.35"/>
+
+    <rect x="5"   y="113" width="46" height="26" fill="#c45c35" opacity="0.32"/>
+    <rect x="162" y="113" width="62" height="26" fill="#2d7b78" opacity="0.38"/>
+
+    <rect x="22"  y="149" width="68" height="26" fill="#c98b2a" opacity="0.38"/>
+    <rect x="157" y="149" width="54" height="26" fill="#c45c35" opacity="0.32"/>
+
+    <!-- subtle band dividers -->
+    <g stroke="#e8e0cc" stroke-width="0.4" opacity="0.07">
+      <line x1="0" y1="36"  x2="240" y2="36"/>
+      <line x1="0" y1="72"  x2="240" y2="72"/>
+      <line x1="0" y1="108" x2="240" y2="108"/>
+      <line x1="0" y1="144" x2="240" y2="144"/>
+    </g>
+
+    <!-- pipeline flow snake -->
+    <polyline
+      points="120,0 120,36 165,36 165,72 75,72 75,108 152,108 152,144 100,144 100,180"
+      fill="none" stroke="#4aaba6" stroke-width="1.8" opacity="0.72"/>
+
+    <!-- pipeline nodes at layer intersections -->
+    <g fill="#c98b2a">
+      <circle cx="120" cy="18"  r="4.5"/>
+      <circle cx="165" cy="54"  r="4.5"/>
+      <circle cx="75"  cy="90"  r="4.5"/>
+      <circle cx="152" cy="126" r="4.5"/>
+      <circle cx="100" cy="162" r="4.5"/>
+    </g>
+    <g fill="none" stroke="#c98b2a" stroke-width="1" opacity="0.45">
+      <circle cx="120" cy="18"  r="8"/>
+      <circle cx="165" cy="54"  r="8"/>
+      <circle cx="75"  cy="90"  r="8"/>
+      <circle cx="152" cy="126" r="8"/>
+      <circle cx="100" cy="162" r="8"/>
+    </g>
+  </svg>
+)}
+
+{id === 'research' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+    <rect width="240" height="180" fill="#12110f"/>
+
+    <!-- L0 → L1 (terra) -->
+    <g stroke="#c45c35" stroke-width="1.2" opacity="0.65">
+      <line x1="120" y1="15" x2="60"  y2="55"/>
+      <line x1="120" y1="15" x2="180" y2="55"/>
+    </g>
+
+    <!-- L1 → L2 (amber) -->
+    <g stroke="#c98b2a" stroke-width="0.9" opacity="0.5">
+      <line x1="60"  y1="55" x2="30"  y2="95"/>
+      <line x1="60"  y1="55" x2="90"  y2="95"/>
+      <line x1="180" y1="55" x2="150" y2="95"/>
+      <line x1="180" y1="55" x2="210" y2="95"/>
+    </g>
+
+    <!-- L2 → L3 (teal) -->
+    <g stroke="#2d7b78" stroke-width="0.7" opacity="0.42">
+      <line x1="30"  y1="95" x2="15"  y2="133"/>
+      <line x1="30"  y1="95" x2="45"  y2="133"/>
+      <line x1="90"  y1="95" x2="75"  y2="133"/>
+      <line x1="90"  y1="95" x2="105" y2="133"/>
+      <line x1="150" y1="95" x2="135" y2="133"/>
+      <line x1="150" y1="95" x2="165" y2="133"/>
+      <line x1="210" y1="95" x2="195" y2="133"/>
+      <line x1="210" y1="95" x2="225" y2="133"/>
+    </g>
+
+    <!-- L3 → L4 (cream, faint) -->
+    <g stroke="#e8e0cc" stroke-width="0.5" opacity="0.18">
+      <line x1="15"  y1="133" x2="8"   y2="165"/><line x1="15"  y1="133" x2="22"  y2="165"/>
+      <line x1="45"  y1="133" x2="38"  y2="165"/><line x1="45"  y1="133" x2="52"  y2="165"/>
+      <line x1="75"  y1="133" x2="68"  y2="165"/><line x1="75"  y1="133" x2="82"  y2="165"/>
+      <line x1="105" y1="133" x2="98"  y2="165"/><line x1="105" y1="133" x2="112" y2="165"/>
+      <line x1="135" y1="133" x2="128" y2="165"/><line x1="135" y1="133" x2="142" y2="165"/>
+      <line x1="165" y1="133" x2="158" y2="165"/><line x1="165" y1="133" x2="172" y2="165"/>
+      <line x1="195" y1="133" x2="188" y2="165"/><line x1="195" y1="133" x2="202" y2="165"/>
+      <line x1="225" y1="133" x2="218" y2="165"/><line x1="225" y1="133" x2="232" y2="165"/>
+    </g>
+
+    <!-- L4 terminal leaves (cream, tiny) -->
+    <g fill="#e8e0cc" opacity="0.32">
+      <circle cx="8"   cy="165" r="2"/><circle cx="22"  cy="165" r="2"/>
+      <circle cx="38"  cy="165" r="2"/><circle cx="52"  cy="165" r="2"/>
+      <circle cx="68"  cy="165" r="2"/><circle cx="82"  cy="165" r="2"/>
+      <circle cx="98"  cy="165" r="2"/><circle cx="112" cy="165" r="2"/>
+      <circle cx="128" cy="165" r="2"/><circle cx="142" cy="165" r="2"/>
+      <circle cx="158" cy="165" r="2"/><circle cx="172" cy="165" r="2"/>
+      <circle cx="188" cy="165" r="2"/><circle cx="202" cy="165" r="2"/>
+      <circle cx="218" cy="165" r="2"/><circle cx="232" cy="165" r="2"/>
+    </g>
+
+    <!-- L3 nodes (teal) -->
+    <g fill="#2d7b78">
+      <circle cx="15"  cy="133" r="3.5"/><circle cx="45"  cy="133" r="3.5"/>
+      <circle cx="75"  cy="133" r="3.5"/><circle cx="105" cy="133" r="3.5"/>
+      <circle cx="135" cy="133" r="3.5"/><circle cx="165" cy="133" r="3.5"/>
+      <circle cx="195" cy="133" r="3.5"/><circle cx="225" cy="133" r="3.5"/>
+    </g>
+
+    <!-- L2 nodes (teal2) -->
+    <g fill="#4aaba6">
+      <circle cx="30"  cy="95" r="5.5"/>
+      <circle cx="90"  cy="95" r="5.5"/>
+      <circle cx="150" cy="95" r="5.5"/>
+      <circle cx="210" cy="95" r="5.5"/>
+    </g>
+
+    <!-- L1 nodes (amber) -->
+    <g fill="#c98b2a">
+      <circle cx="60"  cy="55" r="7"/>
+      <circle cx="180" cy="55" r="7"/>
+    </g>
+
+    <!-- root node (terra + amber inner) -->
+    <circle cx="120" cy="15" r="9"   fill="#c45c35"/>
+    <circle cx="120" cy="15" r="4.5" fill="#c98b2a"/>
+  </svg>
+)}
+
+{id === 'projects' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+    <rect width="240" height="180" fill="#1e2d45"/>
+
+    <!-- background scatter -->
+    <g fill="#c98b2a" opacity="0.22">
+      <circle cx="12"  cy="8"   r="1.5"/><circle cx="47"  cy="5"   r="1"/>
+      <circle cx="95"  cy="11"  r="1.5"/><circle cx="162" cy="8"   r="1"/>
+      <circle cx="210" cy="14"  r="1.5"/><circle cx="228" cy="55"  r="1"/>
+      <circle cx="233" cy="95"  r="1.5"/><circle cx="229" cy="140" r="1"/>
+      <circle cx="195" cy="168" r="1.5"/><circle cx="148" cy="174" r="1"/>
+      <circle cx="90"  cy="172" r="1.5"/><circle cx="38"  cy="160" r="1"/>
+      <circle cx="8"   cy="118" r="1.5"/><circle cx="5"   cy="72"  r="1"/>
+      <circle cx="20"  cy="35"  r="1.5"/><circle cx="198" cy="40"  r="1"/>
+      <circle cx="215" cy="95"  r="1"/>  <circle cx="25"  cy="92"  r="1.5"/>
+    </g>
+
+    <!-- triangle edges -->
+    <g stroke="#e8e0cc" stroke-width="0.7" opacity="0.18">
+      <line x1="70"  y1="130" x2="170" y2="130"/>
+      <line x1="70"  y1="130" x2="120" y2="45"/>
+      <line x1="170" y1="130" x2="120" y2="45"/>
+    </g>
+
+    <!-- centroid accent -->
+    <circle cx="120" cy="102" r="2.5" fill="#e8e0cc" opacity="0.2"/>
+
+    <!-- node A: COMPDES (terra) -->
+    <circle cx="70"  cy="130" r="10"  fill="none" stroke="#c45c35" stroke-width="1" opacity="0.35"/>
+    <circle cx="70"  cy="130" r="5.5" fill="#c45c35"/>
+
+    <!-- node B: CICS App (teal2) -->
+    <circle cx="170" cy="130" r="10"  fill="none" stroke="#4aaba6" stroke-width="1" opacity="0.35"/>
+    <circle cx="170" cy="130" r="5.5" fill="#4aaba6"/>
+
+    <!-- node C: Archiver RAG (amber) -->
+    <circle cx="120" cy="45"  r="10"  fill="none" stroke="#c98b2a" stroke-width="1" opacity="0.35"/>
+    <circle cx="120" cy="45"  r="5.5" fill="#c98b2a"/>
+  </svg>
+)}
+
+{id === 'project_compdes' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+    <rect width="240" height="180" fill="#1e2d45"/>
+    <g fill="#c98b2a" opacity="0.18">
+      <circle cx="12" cy="8" r="1.5"/><circle cx="47" cy="5" r="1"/>
+      <circle cx="95" cy="11" r="1.5"/><circle cx="162" cy="8" r="1"/>
+      <circle cx="210" cy="14" r="1.5"/><circle cx="228" cy="55" r="1"/>
+      <circle cx="233" cy="95" r="1.5"/><circle cx="229" cy="140" r="1"/>
+      <circle cx="195" cy="168" r="1.5"/><circle cx="148" cy="174" r="1"/>
+      <circle cx="90" cy="172" r="1.5"/><circle cx="38" cy="160" r="1"/>
+      <circle cx="8" cy="118" r="1.5"/><circle cx="5" cy="72" r="1"/>
+      <circle cx="20" cy="35" r="1.5"/><circle cx="198" cy="40" r="1"/>
+    </g>
+    <!-- edges — lines to highlighted node brighter -->
+    <line x1="70" y1="130" x2="170" y2="130" stroke="#e8e0cc" stroke-width="0.7" opacity="0.28"/>
+    <line x1="70" y1="130" x2="120" y2="45"  stroke="#e8e0cc" stroke-width="0.7" opacity="0.28"/>
+    <line x1="170" y1="130" x2="120" y2="45" stroke="#e8e0cc" stroke-width="0.5" opacity="0.1"/>
+    <circle cx="120" cy="102" r="2.5" fill="#e8e0cc" opacity="0.15"/>
+    <!-- dim: CICS -->
+    <circle cx="170" cy="130" r="5.5" fill="#4aaba6" opacity="0.25"/>
+    <!-- dim: Archiver -->
+    <circle cx="120" cy="45" r="5.5" fill="#c98b2a" opacity="0.25"/>
+    <!-- highlight: COMPDES (terra) -->
+    <circle cx="70" cy="130" r="18" fill="none" stroke="#c45c35" stroke-width="1" opacity="0.25"/>
+    <circle cx="70" cy="130" r="12" fill="none" stroke="#c45c35" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="70" cy="130" r="9"  fill="#c45c35"/>
+  </svg>
+)}
+
+{id === 'project_cics' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+    <rect width="240" height="180" fill="#1e2d45"/>
+    <g fill="#c98b2a" opacity="0.18">
+      <circle cx="12" cy="8" r="1.5"/><circle cx="47" cy="5" r="1"/>
+      <circle cx="95" cy="11" r="1.5"/><circle cx="162" cy="8" r="1"/>
+      <circle cx="210" cy="14" r="1.5"/><circle cx="228" cy="55" r="1"/>
+      <circle cx="233" cy="95" r="1.5"/><circle cx="229" cy="140" r="1"/>
+      <circle cx="195" cy="168" r="1.5"/><circle cx="148" cy="174" r="1"/>
+      <circle cx="90" cy="172" r="1.5"/><circle cx="38" cy="160" r="1"/>
+      <circle cx="8" cy="118" r="1.5"/><circle cx="5" cy="72" r="1"/>
+      <circle cx="20" cy="35" r="1.5"/><circle cx="198" cy="40" r="1"/>
+    </g>
+    <line x1="70" y1="130" x2="170" y2="130" stroke="#e8e0cc" stroke-width="0.7" opacity="0.28"/>
+    <line x1="170" y1="130" x2="120" y2="45" stroke="#e8e0cc" stroke-width="0.7" opacity="0.28"/>
+    <line x1="70" y1="130" x2="120" y2="45" stroke="#e8e0cc" stroke-width="0.5" opacity="0.1"/>
+    <circle cx="120" cy="102" r="2.5" fill="#e8e0cc" opacity="0.15"/>
+    <!-- dim: COMPDES -->
+    <circle cx="70" cy="130" r="5.5" fill="#c45c35" opacity="0.25"/>
+    <!-- dim: Archiver -->
+    <circle cx="120" cy="45" r="5.5" fill="#c98b2a" opacity="0.25"/>
+    <!-- highlight: CICS (teal2) -->
+    <circle cx="170" cy="130" r="18" fill="none" stroke="#4aaba6" stroke-width="1" opacity="0.25"/>
+    <circle cx="170" cy="130" r="12" fill="none" stroke="#4aaba6" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="170" cy="130" r="9"  fill="#4aaba6"/>
+  </svg>
+)}
+
+{id === 'project_archiver' && (
+  <svg aria-hidden="true" viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice"
+    width="100%" height="100%" style="display:block; position:absolute; inset:0;">
+    <rect width="240" height="180" fill="#1e2d45"/>
+    <g fill="#c98b2a" opacity="0.18">
+      <circle cx="12" cy="8" r="1.5"/><circle cx="47" cy="5" r="1"/>
+      <circle cx="95" cy="11" r="1.5"/><circle cx="162" cy="8" r="1"/>
+      <circle cx="210" cy="14" r="1.5"/><circle cx="228" cy="55" r="1"/>
+      <circle cx="233" cy="95" r="1.5"/><circle cx="229" cy="140" r="1"/>
+      <circle cx="195" cy="168" r="1.5"/><circle cx="148" cy="174" r="1"/>
+      <circle cx="90" cy="172" r="1.5"/><circle cx="38" cy="160" r="1"/>
+      <circle cx="8" cy="118" r="1.5"/><circle cx="5" cy="72" r="1"/>
+      <circle cx="20" cy="35" r="1.5"/><circle cx="198" cy="40" r="1"/>
+    </g>
+    <line x1="70" y1="130" x2="120" y2="45"  stroke="#e8e0cc" stroke-width="0.7" opacity="0.28"/>
+    <line x1="170" y1="130" x2="120" y2="45" stroke="#e8e0cc" stroke-width="0.7" opacity="0.28"/>
+    <line x1="70" y1="130" x2="170" y2="130" stroke="#e8e0cc" stroke-width="0.5" opacity="0.1"/>
+    <circle cx="120" cy="102" r="2.5" fill="#e8e0cc" opacity="0.15"/>
+    <!-- dim: COMPDES -->
+    <circle cx="70" cy="130" r="5.5" fill="#c45c35" opacity="0.25"/>
+    <!-- dim: CICS -->
+    <circle cx="170" cy="130" r="5.5" fill="#4aaba6" opacity="0.25"/>
+    <!-- highlight: Archiver (amber) -->
+    <circle cx="120" cy="45" r="18" fill="none" stroke="#c98b2a" stroke-width="1" opacity="0.25"/>
+    <circle cx="120" cy="45" r="12" fill="none" stroke="#c98b2a" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="120" cy="45" r="9"  fill="#c98b2a"/>
+  </svg>
+)}

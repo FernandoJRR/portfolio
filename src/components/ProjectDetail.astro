@@ -1,0 +1,64 @@
+---
+import type { TechTag, ProjectLink } from '../data/experience'
+
+interface Props {
+  tagline: string
+  why: string
+  how: string
+  tech: TechTag[]
+  links: ProjectLink[]
+}
+const { tagline, why, how, tech, links } = Astro.props
+
+function tagStyle(level: TechTag['level']): string {
+  if (level === 'hi')
+    return 'border:1px solid var(--amber); color:var(--amber); background:rgba(201,139,42,0.07);'
+  if (level === 'mid')
+    return 'border:1px solid var(--teal); color:var(--teal2); background:rgba(45,123,120,0.07);'
+  if (level === 'lo')
+    return 'border:1px solid var(--terra); color:var(--terra); background:rgba(196,92,53,0.07);'
+  return 'border:1px solid rgba(232,224,204,0.1); color:var(--muted); background:var(--s3);'
+}
+---
+<div style="background:var(--bg);">
+
+  <!-- why / how — two columns -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; border-bottom:var(--brd);">
+    <div style="padding:40px 40px; border-right:var(--brd);">
+      <div style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); border-left:2px solid var(--terra); padding-left:10px; margin-bottom:10px;">Why</div>
+      <p style="font-size:13px; color:var(--muted); line-height:1.85;">{why}</p>
+    </div>
+    <div style="padding:40px 40px;">
+      <div style="font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); border-left:2px solid var(--terra); padding-left:10px; margin-bottom:10px;">How</div>
+      <p style="font-size:13px; color:var(--muted); line-height:1.85;">{how}</p>
+    </div>
+  </div>
+
+  <!-- tagline + tech + links -->
+  <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:22px 40px;">
+    <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted);">{tagline}</div>
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <div style="display:flex; flex-wrap:wrap; gap:4px;">
+        {tech.map(t => (
+          <span style={`font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 8px; ${tagStyle(t.level)}`}>
+            {t.label}
+          </span>
+        ))}
+      </div>
+      <div style="display:flex; gap:8px;">
+        {links.map(link => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener"
+            class={`proj-link ${link.variant === 'primary' ? 'prim' : 'sec'}`}
+            style={link.variant === 'primary'
+              ? 'display:inline-flex; align-items:center; padding:9px 20px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; background:var(--amber); color:var(--bg); text-decoration:none;'
+              : 'display:inline-flex; align-items:center; padding:9px 20px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; background:transparent; border:1px solid rgba(232,224,204,0.45); color:var(--cream); text-decoration:none;'}
+          >{link.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+</div>

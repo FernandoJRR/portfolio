@@ -1,0 +1,62 @@
+---
+import type { TechTag, ProjectLink } from '../data/experience'
+
+interface Props {
+  name: string
+  tagline: string
+  why: string
+  how: string
+  tech: TechTag[]
+  links: ProjectLink[]
+  index: number
+}
+const { name, tagline, why, how, tech, links, index } = Astro.props
+const bg = index % 2 === 0 ? 'var(--s1)' : 'var(--s2)'
+
+function tagStyle(level: TechTag['level']): string {
+  if (level === 'hi')
+    return 'border:1px solid var(--amber); color:var(--amber); background:rgba(201,139,42,0.07);'
+  if (level === 'mid')
+    return 'border:1px solid var(--teal); color:var(--teal2); background:rgba(45,123,120,0.07);'
+  if (level === 'lo')
+    return 'border:1px solid var(--terra); color:var(--terra); background:rgba(196,92,53,0.07);'
+  return 'border:1px solid rgba(232,224,204,0.1); color:var(--muted); background:var(--s3);'
+}
+---
+<div class="card" style={`background:${bg}; padding:22px 24px 24px; border-right:var(--brd); border-top:var(--brd); display:flex; flex-direction:column;`}>
+  <h3 style="font-size:16px; font-weight:500; color:var(--cream); line-height:1.2; margin-bottom:5px;">{name}</h3>
+  <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--amber); margin-bottom:18px;">{tagline}</div>
+
+  <div style="margin-bottom:14px;">
+    <div style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); border-left:2px solid var(--terra); padding-left:8px; margin-bottom:6px;">Why</div>
+    <p style="font-size:12px; color:var(--muted); line-height:1.8;">{why}</p>
+  </div>
+
+  <div style="margin-bottom:18px;">
+    <div style="font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); border-left:2px solid var(--terra); padding-left:8px; margin-bottom:6px;">How</div>
+    <p style="font-size:12px; color:var(--muted); line-height:1.8;">{how}</p>
+  </div>
+
+  <div style="margin-top:auto;">
+    <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:12px;">
+      {tech.map(t => (
+        <span style={`font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 8px; ${tagStyle(t.level)}`}>
+          {t.label}
+        </span>
+      ))}
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      {links.map(link => (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener"
+          class={`proj-link ${link.variant === 'primary' ? 'prim' : 'sec'}`}
+          style={link.variant === 'primary'
+            ? 'display:inline-flex; align-items:center; padding:7px 16px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:600; background:var(--amber); color:var(--bg); border:none; text-decoration:none;'
+            : 'display:inline-flex; align-items:center; padding:7px 16px; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500; background:transparent; border:1px solid rgba(232,224,204,0.45); color:var(--cream); text-decoration:none;'}
+        >{link.label}</a>
+      ))}
+    </div>
+  </div>
+</div>

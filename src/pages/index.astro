@@ -1,0 +1,92 @@
+---
+import '../styles/global.css'
+import Nav from '../components/Nav.astro'
+import Hero from '../components/Hero.astro'
+import StatsBand from '../components/StatsBand.astro'
+import DomainIntro from '../components/DomainIntro.astro'
+import CardsGrid from '../components/CardsGrid.astro'
+import Card from '../components/Card.astro'
+import GeoInterstitial from '../components/GeoInterstitial.astro'
+import EducationBand from '../components/EducationBand.astro'
+import SkillsBand from '../components/SkillsBand.astro'
+import Footer from '../components/Footer.astro'
+import ProjectDetail from '../components/ProjectDetail.astro'
+import { domains, projects } from '../data/experience'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Fernando Rodríguez — Senior AI Fullstack Engineer. Portfolio of AI agents, fullstack systems, and research." />
+    <title>Fernando Rodríguez — AI & Fullstack Developer</title>
+  </head>
+  <body>
+    <div style="max-width:1200px; margin:0 auto; display:flex; flex-direction:column; gap:56px; padding:36px 0 80px;">
+
+      <!-- header block -->
+      <div style="border:2px solid rgba(232,224,204,0.17);">
+        <Nav />
+        <Hero />
+        <StatsBand />
+      </div>
+
+      <!-- domain blocks -->
+      {domains.map((domain, i) => (
+        <div style="border:2px solid rgba(232,224,204,0.17);">
+          <DomainIntro
+            number={domain.number}
+            pipColor={domain.pipColor}
+            titleFirst={domain.titleFirst}
+            titleSecond={domain.titleSecond}
+            domainId={domain.id}
+          />
+          <CardsGrid cols={domain.cols}>
+            {domain.cards.map((card, j) => (
+              <Card
+                company={card.company}
+                role={card.role}
+                period={card.period}
+                bullets={card.bullets}
+                tech={card.tech}
+                index={j}
+              />
+            ))}
+          </CardsGrid>
+          {i < domains.length - 1 && (
+            <GeoInterstitial variant={i === 0 ? 'A' : 'B'} />
+          )}
+        </div>
+      ))}
+
+      <!-- project blocks — one tile per project -->
+      {projects.map(project => (
+        <div style="border:2px solid rgba(232,224,204,0.17);">
+          <DomainIntro
+            number={project.number}
+            pipColor={project.pipColor}
+            titleFirst={project.titleFirst}
+            titleSecond={project.titleSecond}
+            domainId={`project_${project.id}`}
+            sectionLabel="Project"
+          />
+          <ProjectDetail
+            tagline={project.tagline}
+            why={project.why}
+            how={project.how}
+            tech={project.tech}
+            links={project.links}
+          />
+        </div>
+      ))}
+
+      <!-- bottom block -->
+      <div style="border:2px solid rgba(232,224,204,0.17);">
+        <EducationBand />
+        <SkillsBand />
+        <Footer />
+      </div>
+
+    </div>
+  </body>
+</html>

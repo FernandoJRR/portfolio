@@ -1,0 +1,16 @@
+---
+import { education } from '../data/experience'
+---
+<div class="edu-band" style="display:grid; grid-template-columns:1fr 1fr; border-bottom:var(--brd);">
+  {education.map((item, i) => (
+    <div style={`padding:20px 24px; background:${i === 0 ? 'var(--s1)' : 'var(--s2)'}; ${i === 0 ? 'border-right:var(--brd);' : ''}`}>
+      <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+        <span style={`display:inline-block; width:7px; height:7px; background:${item.labelColor};`}></span>
+        <span style="font-size:13px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted);">{item.label}</span>
+      </div>
+      <div style="font-size:14px; font-weight:500; color:var(--cream); margin-bottom:4px;">{item.degree}</div>
+      <div style="font-size:12px; color:var(--muted);">{item.institution}</div>
+      <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--terra); margin-top:4px;">{item.period}</div>
+    </div>
+  ))}
+</div>

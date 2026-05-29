@@ -1,0 +1,47 @@
+---
+import type { TechTag } from '../data/experience'
+
+interface Props {
+  company: string
+  role: string
+  period: string
+  bullets: string[]
+  tech: TechTag[]
+  index: number
+}
+const { company, role, period, bullets, tech, index } = Astro.props
+const bg = index % 2 === 0 ? 'var(--s1)' : 'var(--s2)'
+
+function tagStyle(level: TechTag['level']): string {
+  if (level === 'hi')
+    return 'border:1px solid var(--amber); color:var(--amber); background:rgba(201,139,42,0.07);'
+  if (level === 'mid')
+    return 'border:1px solid var(--teal); color:var(--teal2); background:rgba(45,123,120,0.07);'
+  if (level === 'lo')
+    return 'border:1px solid var(--terra); color:var(--terra); background:rgba(196,92,53,0.07);'
+  return 'border:1px solid rgba(232,224,204,0.1); color:var(--muted); background:var(--s3);'
+}
+---
+<div
+  class="card"
+  style={`background:${bg}; padding:36px 32px 36px; border-right:var(--brd); border-top:var(--brd);`}
+>
+  <div style="font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:10px;">{company}</div>
+  <h3 style="font-size:15px; font-weight:500; color:var(--cream); line-height:1.25; margin-bottom:5px;">{role}</h3>
+  <div style="font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--terra); margin-bottom:20px;">{period}</div>
+  <ul>
+    {bullets.map(b => (
+      <li style="font-size:13px; color:var(--muted); line-height:1.75; padding-left:14px; position:relative; margin-bottom:1px;">
+        <span style="position:absolute; left:0; color:var(--terra); font-size:13px; top:1px;">—</span>
+        {b}
+      </li>
+    ))}
+  </ul>
+  <div style="display:flex; flex-wrap:wrap; gap:4px; margin-top:20px;">
+    {tech.map(t => (
+      <span style={`font-size:12px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 8px; ${tagStyle(t.level)}`}>
+        {t.label}
+      </span>
+    ))}
+  </div>
+</div>

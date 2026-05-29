@@ -1,0 +1,14 @@
+---
+interface Props {
+  cols: 2 | 3
+}
+const { cols } = Astro.props
+const cls = cols === 2 ? 'cards-grid-2' : 'cards-grid-3'
+const colVal = cols === 2 ? '1fr 1fr' : '1fr 1fr 1fr'
+---
+<div
+  class={cls}
+  style={`display:grid; grid-template-columns:${colVal}; border-bottom:var(--brd);`}
+>
+  <slot />
+</div>

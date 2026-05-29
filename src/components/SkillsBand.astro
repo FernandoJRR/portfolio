@@ -1,0 +1,36 @@
+---
+import { skills } from '../data/experience'
+
+type Level = 'hi' | 'mid' | 'lo' | 'default'
+
+function tagStyle(level: Level): string {
+  if (level === 'hi')
+    return 'border:1px solid var(--amber); color:var(--amber); background:rgba(201,139,42,0.07);'
+  if (level === 'mid')
+    return 'border:1px solid var(--teal); color:var(--teal2); background:rgba(45,123,120,0.07);'
+  if (level === 'lo')
+    return 'border:1px solid var(--terra); color:var(--terra); background:rgba(196,92,53,0.07);'
+  return 'border:1px solid rgba(232,224,204,0.1); color:var(--muted); background:var(--s3);'
+}
+
+const allSkills: { label: string; level: Level }[] = [
+  ...skills.hi.map(s => ({ label: s, level: 'hi' as Level })),
+  ...skills.mid.map(s => ({ label: s, level: 'mid' as Level })),
+  ...skills.lo.map(s => ({ label: s, level: 'lo' as Level })),
+  ...skills.default.map(s => ({ label: s, level: 'default' as Level })),
+]
+---
+<div style="padding:24px 28px; border-bottom:var(--brd); background:var(--s2);">
+  <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
+    <span style="display:inline-block; width:7px; height:7px; background:var(--amber);"></span>
+    <span style="font-size:13px; letter-spacing:0.24em; text-transform:uppercase; color:var(--muted);">Technical skills</span>
+  </div>
+  <div class="skills-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:5px;">
+    {allSkills.map(s => (
+      <span style={`display:flex; align-items:center; gap:5px; font-size:13px; letter-spacing:0.1em; text-transform:uppercase; padding:7px 10px; ${tagStyle(s.level)}`}>
+        <span style="display:inline-block; width:4px; height:4px; background:currentColor; flex-shrink:0;"></span>
+        {s.label}
+      </span>
+    ))}
+  </div>
+</div>
