@@ -1,6 +1,6 @@
 ---
 ---
-<nav style="display:flex; flex-direction:row; width:100%; background:var(--s1); border-bottom:var(--brd);">
+<nav style="position:relative; display:flex; flex-direction:row; width:100%; background:var(--s1); border-bottom:var(--brd);">
   <div style="display:flex; flex-direction:row; align-items:center; gap:10px; padding:12px 20px; border-right:var(--brd);">
     <div style="display:grid; grid-template-columns:repeat(3,6px); grid-template-rows:repeat(3,6px); gap:1.5px;">
       <span style="display:block; width:6px; height:6px; background:var(--teal2);"></span>
@@ -29,4 +29,16 @@
       <a style="display:block; padding:12px 16px; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted);">Contact</a>
     </li>
   </ul>
+  <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<script>
+  const btn = document.querySelector('.nav-hamburger') as HTMLButtonElement
+  const nav = btn?.closest('nav')
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('nav-open')
+    btn.setAttribute('aria-expanded', String(open))
+  })
+</script>

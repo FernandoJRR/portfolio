@@ -11,11 +11,11 @@ interface Props {
 }
 const { number, pipColor, titleFirst, titleSecond, domainId, sectionLabel = 'Domain' } = Astro.props
 ---
-<div style="display:grid; grid-template-columns:260px 1fr; border-bottom:var(--brd);">
-  <div style="position:relative; overflow:hidden; background:var(--navy); border-right:var(--brd); min-height:260px;">
+<div class="domain-intro" style="display:grid; grid-template-columns:260px 1fr; border-bottom:var(--brd);">
+  <div class="domain-intro-art" style="position:relative; overflow:hidden; background:var(--navy); border-right:var(--brd); min-height:260px;">
     <DomainArt id={domainId} />
   </div>
-  <div style="padding:40px 40px; background:var(--bg); display:flex; flex-direction:column; justify-content:flex-end;">
+  <div class="domain-intro-text" style="padding:40px 40px; background:var(--bg); display:flex; flex-direction:column; justify-content:flex-end;">
     <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
       <span style={`display:inline-block; width:8px; height:8px; background:${pipColor};`}></span>
       <span style="font-size:11px; letter-spacing:0.26em; text-transform:uppercase; color:var(--muted);">{number} — {sectionLabel}</span>
