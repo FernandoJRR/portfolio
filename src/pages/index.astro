@@ -6,6 +6,7 @@ import StatsBand from '../components/StatsBand.astro'
 import DomainIntro from '../components/DomainIntro.astro'
 import CardsGrid from '../components/CardsGrid.astro'
 import Card from '../components/Card.astro'
+import Publications from '../components/Publications.astro'
 import GeoInterstitial from '../components/GeoInterstitial.astro'
 import EducationBand from '../components/EducationBand.astro'
 import SkillsBand from '../components/SkillsBand.astro'
@@ -18,7 +19,7 @@ import { domains, projects } from '../data/experience'
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Fernando Rodríguez — Senior AI Fullstack Engineer. Portfolio of AI agents, fullstack systems, and research." />
+    <meta name="description" content="Fernando Rodríguez — AI & Fullstack Engineer. Portfolio of AI agents, fullstack systems, and research." />
     <title>Fernando Rodríguez — AI & Fullstack Developer</title>
   </head>
   <body>
@@ -53,6 +54,7 @@ import { domains, projects } from '../data/experience'
               />
             ))}
           </CardsGrid>
+          {domain.publications && <Publications publications={domain.publications} />}
           {i < domains.length - 1 && (
             <GeoInterstitial variant={i === 0 ? 'A' : 'B'} />
           )}

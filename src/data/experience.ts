@@ -31,6 +31,12 @@ export type Project = {
   links: ProjectLink[]
 }
 
+export type Publication = {
+  title: string
+  venue: string
+  status: string
+}
+
 export type Domain = {
   id: string
   number: string
@@ -39,6 +45,7 @@ export type Domain = {
   titleSecond: string
   cols: 2 | 3
   cards: Card[]
+  publications?: Publication[]
 }
 
 export const domains: Domain[] = [
@@ -51,9 +58,25 @@ export const domains: Domain[] = [
     cols: 2,
     cards: [
       {
+        company: 'NextLink Labs · Remote',
+        role: 'Forward Deployed Engineer (AI Integrations)',
+        period: 'July 2026 – Present',
+        bullets: [
+          'Support US companies integrating AI systems into their workflows and products',
+          'Developing an AI-powered quote generation system to automate the quoting process',
+          'Train and assess internal teams on AI tools and best practices',
+        ],
+        tech: [
+          { label: 'Claude AI', level: 'hi' },
+          { label: 'Python', level: 'hi' },
+          { label: 'FastAPI', level: 'mid' },
+          { label: 'AWS', level: 'default' },
+        ],
+      },
+      {
         company: 'Steamops · Remote',
         role: 'Senior AI Integration Engineer',
-        period: 'July 2025 – Present',
+        period: 'July 2025 – June 2026',
         bullets: [
           'Built conversational AI bots as customer service agents over voice and chat',
           'Integrated external APIs into AI agents to interact with external systems',
@@ -75,7 +98,7 @@ export const domains: Domain[] = [
           'Cinema backend microservices — SpringBoot + Apache Kafka for async event-driven workflows',
         ],
         tech: [
-          { label: 'LangChain', level: 'hi' },
+          { label: 'React', level: 'hi' },
           { label: 'NestJS', level: 'mid' },
           { label: 'Kafka', level: 'default' },
           { label: 'SpringBoot', level: 'default' },
@@ -176,6 +199,18 @@ export const domains: Domain[] = [
         ],
       },
     ],
+    publications: [
+      {
+        title: 'Patrones de Diseño y Sistemas de Bajo Nivel: Un Caso de Estudio con Compiladores',
+        venue: 'COMPDES 2025 · CUNOC-USAC',
+        status: 'Published',
+      },
+      {
+        title: 'Sistema RAG Agnóstico para Agentes de IA con Memoria Basada en Grafos',
+        venue: 'COMPDES 2026 · CUNOC-USAC',
+        status: 'In press',
+      },
+    ],
   },
 ]
 
@@ -257,5 +292,22 @@ export const projects: Project[] = [
       { label: 'Claude AI', level: 'default' },
     ],
     links: [{ label: 'GitHub →', url: 'https://github.com/FernandoJRR/archiver-rag', variant: 'secondary' }],
+  },
+  {
+    id: 'solidifier',
+    number: '07',
+    pipColor: 'var(--teal2)',
+    titleFirst: 'solid',
+    titleSecond: 'ifier',
+    name: 'solidifier',
+    tagline: 'SOLID-principles coding-agent skill',
+    why: 'Coding agents apply design patterns inconsistently — either over-engineering simple code or ignoring structure entirely. The goal was a skill that applies SOLID and design patterns to backend code with judgment and restraint.',
+    how: 'Built on the Agent Skills open standard, ships a self-contained copy per agent with a configurable rigor system (from advisory audits to full refactors) and a hard bias against over-engineering. Installable across Claude Code, OpenCode, GitHub Copilot, and Codex via a single install script.',
+    tech: [
+      { label: 'Shell',        level: 'hi' },
+      { label: 'Agent Skills', level: 'mid' },
+      { label: 'Claude Code',  level: 'default' },
+    ],
+    links: [{ label: 'GitHub →', url: 'https://github.com/FernandoJRR/solidifier', variant: 'secondary' }],
   },
 ]
