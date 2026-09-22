@@ -291,7 +291,10 @@ export const projects: Project[] = [
       { label: 'MCP',       level: 'mid' },
       { label: 'Claude AI', level: 'default' },
     ],
-    links: [{ label: 'GitHub →', url: 'https://github.com/FernandoJRR/archiver-rag', variant: 'secondary' }],
+    links: [
+      { label: 'Live site →', url: 'https://fernandojrr.github.io/archiver-rag/', variant: 'primary' },
+      { label: 'GitHub →', url: 'https://github.com/FernandoJRR/archiver-rag', variant: 'secondary' },
+    ],
   },
   {
     id: 'solidifier',
